@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'io.quarkus'
+    id("io.mvnpm.gradle.plugin.native-java-plugin") version "1.0.0"
 }
 
 repositories {
@@ -14,6 +15,8 @@ dependencies {
     implementation 'io.quarkus:quarkus-jdbc-h2'
     implementation 'io.quarkus:quarkus-hibernate-validator'
     implementation 'io.quarkiverse.renarde:quarkus-renarde:3.1.8'
+    implementation "io.quarkiverse.web-bundler:quarkus-web-bundler:3.0.0"
+    implementation "io.quarkiverse.web-bundler:quarkus-web-bundler-tailwindcss:3.0.0"
     implementation 'io.quarkus:quarkus-data-hibernate'
     implementation 'io.quarkus:quarkus-arc'
     implementation 'io.quarkus:quarkus-hibernate-orm'
@@ -25,8 +28,8 @@ group = 'bd.gov.banbeis'
 version = '1.0.0-SNAPSHOT'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 compileJava {
