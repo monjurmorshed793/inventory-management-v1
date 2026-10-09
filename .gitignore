@@ -44,3 +44,5 @@ nb-configuration.xml
 
 # h2 data
 .data/
+data/
+data
