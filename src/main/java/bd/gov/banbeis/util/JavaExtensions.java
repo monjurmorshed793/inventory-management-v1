@@ -1,4 +1,4 @@
-package util;
+package bd.gov.banbeis.util;
 
 import io.quarkus.qute.TemplateExtension;
 
