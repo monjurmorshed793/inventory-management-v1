@@ -1,6 +1,5 @@
 package bd.gov.banbeis.util;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,11 +9,9 @@ import io.quarkus.elytron.security.common.BcryptUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Observes;
 
-import io.quarkus.runtime.LaunchMode;
 import io.quarkus.runtime.StartupEvent;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import model.Todo;
 
 @ApplicationScoped
 public class Startup {
