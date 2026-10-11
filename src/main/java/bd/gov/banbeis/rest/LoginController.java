@@ -14,13 +14,21 @@ public class LoginController extends HxController {
 
     @CheckedTemplate 
     static class Templates{
-        public static native TemplateInstance login();
+        public static native TemplateInstance login(Boolean isHtmx);
         // public static native TemplateInstance logout();
     }
 
     @Path("/login")
     @LoginPage
     public TemplateInstance login(){
-        return Templates.login();
+        String title = """
+                {"setTitle": "Login"}
+                """;
+        if(isHxRequest()){
+            this.hx(HxResponseHeader.TRIGGER, title);
+        }
+        return Templates.login(isHxRequest());
     }
+
+    
 }
