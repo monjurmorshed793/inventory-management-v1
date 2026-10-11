@@ -7,14 +7,14 @@ import io.quarkus.security.Authenticated;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 
-@Path("/")
 public class DashboardController extends HxController{
     @CheckedTemplate 
     static class Templates{
         public static native TemplateInstance dashboard(boolean isHtmx);
     }
 
-    @GET 
+    @GET
+    @Path("/")
     @Authenticated 
     public TemplateInstance dashboard(){
         return Templates.dashboard(isHxRequest());

@@ -21,10 +21,20 @@
 
                 <form id="loginForm" class="grid grid-cols-1 gap-4 md:grid-cols-4">
                     <label class="label">Username</label>
-                    <input name="username" type="text" class="input w-full md:col-span-3" placeholder="Username">
-
+                    <div class = "w-full md:col-span-3 flex flex-col">
+                        <input name="username" type="text" class="input w-full" placeholder="Username">
+                        {#ifError 'username' }
+                            <span class="text-red-700 text-sm">{#error 'username' /}</span>
+                        {/ifError}
+                    </div>
+                    
                     <label class="label">Password</label>
-                    <input name="password" type="password" class="input w-full md:col-span-3">
+                    <div class="w-full md:col-span-3">
+                         <input name="password" type="password" class="input w-full ">
+                         {#ifError 'password' }
+                            <span class="tex-tred-700 text-sm">{#error 'password' /}</span>
+                         {/ifError}
+                    </div>
 
                     <div class="w-full col-span-4 flex flex-col items-center justify-center">
                         <button class="btn btn-primary">Login</button>
