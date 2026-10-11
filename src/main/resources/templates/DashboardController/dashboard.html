@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-</body>
-</html>
+{#if isHtmx}
+  
+{#else}
+  {#include main-root}
+    {#title}Dashboard{/title}
+  {/include}  
+{/if}
+
+{#fragment id=dashboard}
+  
+{/fragment}
