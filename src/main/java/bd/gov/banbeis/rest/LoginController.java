@@ -1,6 +1,7 @@
 package bd.gov.banbeis.rest;
 
 import org.jboss.resteasy.reactive.RestForm;
+import org.jboss.resteasy.reactive.server.spi.RuntimeConfiguration.Body.MultiPart;
 
 import bd.gov.banbeis.security.entity.BanbeisUser;
 import bd.gov.banbeis.security.entity.BanbeisUser_;
@@ -13,8 +14,10 @@ import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.NewCookie;
 import jakarta.ws.rs.core.Response;
 
@@ -35,9 +38,7 @@ public class LoginController extends HxController {
     @Path("/login")
     @LoginPage
     public TemplateInstance login(){
-        String title = """
-                {"setTitle": "Login"}
-                """;
+        String title = "{\"setTitle\": \"Login\"}";
         if(isHxRequest()){
             this.hx(HxResponseHeader.TRIGGER, title);
         }

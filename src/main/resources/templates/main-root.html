@@ -7,7 +7,7 @@
 
     {#bundle /}
   </head>
-  <body  hx-headers='{"{inject:csrf.headerName}":"{inject:csrf.token}"}'>
+  <body  hx-headers:inherited='{"{inject:csrf.headerName}":"{inject:csrf.token}"}'>
     <!-- This inserts the body of your templates -->
     {#insert /}
   </body>
