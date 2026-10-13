@@ -5,11 +5,8 @@ import io.quarkus.data.hibernate.ManagedRepository;
 import io.quarkus.data.hibernate.WithId;
 import jakarta.data.repository.Find;
 import jakarta.persistence.*;
-import org.hibernate.engine.spi.ManagedEntity;
 
 import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 

@@ -46,17 +46,19 @@ public class LoginController extends HxController {
 
 
     @POST 
+    @Path ("/manual-login")
     public Response logInInput(
         @NotBlank @RestForm String username,
         @NotBlank @RestForm String password
     ){
+        System.out.println("In the controller");
         if(validationFailed()){
-            login();
+            return Response.ok(login()).build();
         }
         BanbeisUser user = userRepo.findByUsername(username) ;
         if(user == null || !BcryptUtil.matches(password, user.password)){
             validation.addError("username", "Invalid username/password");
-            login();
+            return Response.ok(login()).build();
         }
 
         NewCookie cookie = security.makeUserCookie(user);

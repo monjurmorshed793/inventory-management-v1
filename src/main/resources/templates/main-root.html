@@ -3,10 +3,11 @@
   <head>
     <!-- You can pass parameters from your templates to your main template and insert them -->
     <title>{#insert title /}</title>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0" integrity="sha384-BvJpBiO8Kh31EqtJe5DRIeWrHWnCGkwytKs9NKFi86Hhw96dEqdEMzZDeK9iEGTc" crossorigin="anonymous"></script>
 
     {#bundle /}
   </head>
-  <body>
+  <body  hx-headers='{"{inject:csrf.headerName}":"{inject:csrf.token}"}'>
     <!-- This inserts the body of your templates -->
     {#insert /}
   </body>
