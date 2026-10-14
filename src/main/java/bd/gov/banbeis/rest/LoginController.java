@@ -38,7 +38,7 @@ public class LoginController extends HxController {
     @Path("/login")
     @LoginPage
     public TemplateInstance login(){
-        String title = "{\"setTitle\": \"Login\"}";
+        String title = "{\"setTitle\": \"Login Pages\"}";
         if(isHxRequest()){
             this.hx(HxResponseHeader.TRIGGER, title);
         }

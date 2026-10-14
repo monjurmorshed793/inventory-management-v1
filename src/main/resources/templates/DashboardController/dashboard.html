@@ -1,11 +1,12 @@
 {#if isHtmx}
-  
+  {#include $dashboard /}    
 {#else}
-  {#include main-root}
-    {#title}Dashboard{/title}
+  {#include dashboard-root}
+    {#include $dashboard /}    
   {/include}  
 {/if}
 
-{#fragment id=dashboard}
+{#fragment id=dashboard rendered=false}
+  <title>Dashboard</title>
   <h1>Dashboard</h1>
-{/fragment}
+{/fragment} 
