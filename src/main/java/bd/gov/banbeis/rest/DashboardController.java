@@ -15,8 +15,7 @@ public class DashboardController extends HxController{
 
     @GET
     @Path("/")
-    @Authenticated 
-    public TemplateInstance dashboard(){
+    @Authenticated     public TemplateInstance dashboard(){
         return Templates.dashboard(isHxRequest());
     }
 }

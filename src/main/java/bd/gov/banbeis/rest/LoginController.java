@@ -59,13 +59,19 @@ public class LoginController extends HxController {
         BanbeisUser user = userRepo.findByUsername(username) ;
         if(user == null || !BcryptUtil.matches(password, user.password)){
             validation.addError("username", "Invalid username/password");
-            return Response.ok(login()).build();
+            validation.addError("password", "Invalid username/password");
+            return Response
+                    .ok(Templates.login(true))
+                    .header(HxResponseHeader.HX_RETARGET.key(), "#content")
+                    .header(HxResponseHeader.HX_RESWAP.key(), "outerHTML")
+                    .build();
         }
 
         NewCookie cookie = security.makeUserCookie(user);
         
         return Response
-            .ok(dashboardController.dashboard())
+            .ok(DashboardController.Templates.dashboard(true))
+                .header(HxResponseHeader.LOCATION.key(), "/")
             .header(HxResponseHeader.HX_RETARGET.key(), "#content")
             .header(HxResponseHeader.HX_RESWAP.key(), "outerHTML")
             .cookie(cookie)

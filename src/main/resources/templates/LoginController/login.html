@@ -10,7 +10,7 @@
 
 {/if}
 
-{#fragment id=formBody}
+{#fragment id=formBody rendered=false}
     <div  id="content" class="flex min-h-screen w-full items-center justify-center">
         <div  class="h-auto  md:w-2/4 card bg-base-100 shadow-sm">
             <div class="card-body">
@@ -32,7 +32,7 @@
                     <div class="w-full md:col-span-3">
                          <input name="password" type="password" class="input w-full ">
                          {#ifError 'password' }
-                            <span class="tex-tred-700 text-sm">{#error 'password' /}</span>
+                            <span class="text-red-700 text-sm">{#error 'password' /}</span>
                          {/ifError}
                     </div>
 
