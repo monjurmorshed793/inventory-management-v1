@@ -9,6 +9,14 @@ public class Designation extends WithId.AutoUUID {
     public String name;
     public String nameBn;
 
+    public Designation(){
+
+    }
+
+    public Designation(String name){
+        this.name = name;
+    }
+
     public interface DesignationRepo extends ManagedRepository<Designation>{
 
     }

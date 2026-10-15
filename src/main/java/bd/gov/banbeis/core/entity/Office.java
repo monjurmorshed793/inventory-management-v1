@@ -9,6 +9,15 @@ public class Office extends WithId.AutoUUID {
     public String name;
     public String nameBn;
 
+    public Office(){
+
+    }
+
+    public Office(String name, String nameBn){
+        this.name = name;
+        this.nameBn = nameBn;
+    }
+
     public interface OfficeRepo extends ManagedRepository<Office>{
 
     }

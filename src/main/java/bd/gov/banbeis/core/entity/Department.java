@@ -12,6 +12,16 @@ public class Department extends WithId.AutoUUID {
     @ManyToOne
     public Office office;
 
+    public Department(){
+
+    }
+
+    public Department(String name, String nameBn, Office office){
+        this.name = name;
+        this.nameBn = nameBn;
+        this.office = office;
+    }
+
 
     public interface DepartmentRepo extends ManagedRepository<Department>{
 
