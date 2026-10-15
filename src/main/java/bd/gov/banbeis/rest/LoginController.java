@@ -71,7 +71,7 @@ public class LoginController extends HxController {
         
         return Response
             .ok(DashboardController.Templates.dashboard(true))
-                .header(HxResponseHeader.LOCATION.key(), "/")
+            .header(HxResponseHeader.LOCATION.key(), "/")
             .header(HxResponseHeader.HX_RETARGET.key(), "#content")
             .header(HxResponseHeader.HX_RESWAP.key(), "outerHTML")
             .cookie(cookie)
