@@ -1,12 +1,15 @@
 {#if isHtmx}
-  {#include $dashboard /}    
+  {#include dashboard-root$admin_content}
+    {#include $dashboard_content}
+      
+    {/include}
+  {/include} 
 {#else}
   {#include dashboard-root}
-    {#include $dashboard /}    
+    {#include $dashboard_content /}    
   {/include}  
 {/if}
 
-{#fragment id=dashboard rendered=false}
-  <title>Dashboard</title>
-  <h1>Dashboard</h1>
+{#fragment id=dashboard_content rendered=false}
+  <h1>Dashboard body</h1>
 {/fragment} 
