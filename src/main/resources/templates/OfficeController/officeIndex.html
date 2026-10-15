@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-	<p>
-		isHtmx : java.lang.Boolean
-		<ul>
-			<li>TRUE: {isHtmx.TRUE}</li>
-			<li>FALSE: {isHtmx.FALSE}</li>
-			<li>TYPE: {isHtmx.TYPE}</li>
-		</ul>
+{#if isHtmx}
+    {#include $office_content /}
+{#else}
+    {#include dashboard-root}
+        {#include $office_content /}
 
-	</p>
-</body>
-</html>
+    {/include}
+{/if}
+
+{#fragment id=office_content rendered=false}
+    <h1>This is office content</h1>
+{/fragment}
+
