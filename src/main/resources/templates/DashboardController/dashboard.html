@@ -14,5 +14,8 @@
 {/if}
 
 {#fragment id=dashboard_content rendered=false}
+    {#if isHtmx}
+        {#include dashboard-root$manu_list isHtmx=isHtmx route='dashboard' /}
+    {/if}
     <h1>This is dashboard content</h1>
 {/fragment}

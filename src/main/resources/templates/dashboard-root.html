@@ -18,30 +18,33 @@
             </div>
             <div class="grid grid-cols-12">
                 <div class="col-span-2">
-                    <ul class="menu bg-base-200 h-screen rounded-box w-56">
-                        <li><a id="dashboard" hx-get='/' hx-target='#body-content'>Dashboard</a></li>
+                    {#fragment id=manu_list}
+                        <ul id="menu-list" class="menu bg-base-200 h-screen rounded-box w-56" {#if isHtmx} hx-swap-oob="true" {/if}>
+                            <li><a id="dashboard" hx-get='/' hx-target='#body-content' class="{#if route.or('') == 'dashboard'}menu-active{/if}">Dashboard</a></li>
 
-                        <li>
-                            <h2>Configurations</h2>
-                            <ul>
-                                <li><a id="office" hx-get='/office' hx-target='#body-content'>Office</a></li>
-                                <li><a id="department" >Department</a></li>
-                                <li><a id="designation" href="">Designation</a></li>
-                                <li><a id="employees" href="">Employees</a></li>
-                            </ul>
-                        </li>
+                            <li>
+                                <h2>Configurations</h2>
+                                <ul>
+                                    <li><a id="office" hx-get='/office' hx-target='#body-content' class="{#if route.or('') == 'office'}menu-active{/if}">Office</a></li>
+                                    <li><a id="department" >Department</a></li>
+                                    <li><a id="designation" href="">Designation</a></li>
+                                    <li><a id="employees" href="">Employees</a></li>
+                                </ul>
+                            </li>
 
-                        <li>
-                            <h2>Inventory</h2>
-                            <ul>
-                                <li><a href="">Quantity Type</a></li>
-                                <li><a href="">Category</a></li>
-                                <li><a href="">Sub Category</a></li>
-                                <li><a href="">Items</a></li>                            
-                            </ul>
-                        </li>
+                            <li>
+                                <h2>Inventory</h2>
+                                <ul>
+                                    <li><a href="">Quantity Type</a></li>
+                                    <li><a href="">Category</a></li>
+                                    <li><a href="">Sub Category</a></li>
+                                    <li><a href="">Items</a></li>
+                                </ul>
+                            </li>
 
-                    </ul>
+                        </ul>
+                    {/fragment}
+
                 </div>
                 <div class="col-span-10" id="body-content">
                     <div class="card bg-base-100 w-100 shadow-sm" >
