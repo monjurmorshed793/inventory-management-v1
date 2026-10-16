@@ -10,7 +10,7 @@ import jakarta.ws.rs.Path;
 public class DashboardController extends HxController{
     @CheckedTemplate 
     static class Templates{
-        public static native TemplateInstance dashboard(boolean isHtmx, boolean fromLoginPage);
+        public static native TemplateInstance dashboard(boolean isHtmx, boolean fromLoginPage, String route);
     }
 
     @GET
@@ -18,6 +18,6 @@ public class DashboardController extends HxController{
     @Authenticated
     public TemplateInstance dashboard(){
         this.hx(HxResponseHeader.PUSH_URL, "/");
-        return Templates.dashboard(isHxRequest(), false);
+        return Templates.dashboard(isHxRequest(), false, "dashboard");
     }
 }

@@ -19,7 +19,7 @@ public class OfficeController extends HxController {
 
     @CheckedTemplate
     static class Templates{
-        public static native TemplateInstance officeIndex(Boolean isHtmx);
+        public static native TemplateInstance officeIndex(Boolean isHtmx, String route);
         public static native TemplateInstance officeList(List<Office> offices);
     }
 
@@ -27,7 +27,7 @@ public class OfficeController extends HxController {
     @Path("/")
     public TemplateInstance index(){
         this.hx(HxResponseHeader.PUSH_URL, "/office");
-        return Templates.officeIndex(isHxRequest());
+        return Templates.officeIndex(isHxRequest(), "office");
     }
 
     @GET

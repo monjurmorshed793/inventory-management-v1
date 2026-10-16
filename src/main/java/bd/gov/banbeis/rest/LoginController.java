@@ -70,7 +70,7 @@ public class LoginController extends HxController {
         NewCookie cookie = security.makeUserCookie(user);
         
         return Response
-            .ok(DashboardController.Templates.dashboard(true, true))
+            .ok(DashboardController.Templates.dashboard(true, true, "dashboard"))
             .header(HxResponseHeader.REPLACE_URL.key(), "/")
             .header(HxResponseHeader.HX_RETARGET.key(), "#content")
             .header(HxResponseHeader.HX_RESWAP.key(), "outerHTML")
