@@ -1,0 +1,13 @@
+{#if isHtmx}
+    {#include $office_content /}
+{#else}
+    {#include dashboard-root}
+        {#include $office_content /}
+
+    {/include}
+{/if}
+
+{#fragment id=office_content rendered=false}
+    <h1>This is office content</h1>
+{/fragment}
+
