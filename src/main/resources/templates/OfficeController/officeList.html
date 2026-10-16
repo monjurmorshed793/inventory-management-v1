@@ -1,0 +1,20 @@
+<div class="flex flex-col">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Name (Bangla)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#for office in offices}
+                <tr>
+                    <td>#</td>
+                    <td>{office.name}</td>
+                    <td>{office.nameBn}</td>
+                </tr>
+            {/for}
+        </tbody>
+    </table>
+</div>
