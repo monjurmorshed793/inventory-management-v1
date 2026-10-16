@@ -26,7 +26,7 @@
                                 <h2>Configurations</h2>
                                 <ul>
                                     <li><a id="office" hx-get='/office' hx-target='#body-content' class="{#if route.or('') == 'office'}menu-active{/if}">Office</a></li>
-                                    <li><a id="department" >Department</a></li>
+                                    <li><a id="department" hx-get='/department' hx-target='#body-content' class="{#if route.or('') == 'department'}menu-active{/if}">Department</a></li>
                                     <li><a id="designation" href="">Designation</a></li>
                                     <li><a id="employees" href="">Employees</a></li>
                                 </ul>

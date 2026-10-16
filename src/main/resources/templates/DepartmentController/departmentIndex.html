@@ -1,0 +1,18 @@
+{#if isHtmx}
+    {#include $department_content /}
+{#else}
+    {#include dashboard-root}
+        {#include $department_content /}
+
+    {/include}
+{/if}
+
+{#fragment id=department_content rendered=false}
+    {#if isHtmx}
+        {#include dashboard-root$manu_list isHtmx=isHtmx route='department' /}
+    {/if}
+    <div class="card-body">
+        <div class="card-title">Department</div>
+        <div id='department-list'></div>
+    </div>
+{/fragment}
