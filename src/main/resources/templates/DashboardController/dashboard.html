@@ -1,6 +1,11 @@
-{#if isHtmx}
+
+{#if fromLoginPage && isHtmx}
+    {#include dashboard-root$admin_content}
+        {#include $dashboard_content /}
+    {/include}
+{#else if isHtmx}
     {#include $dashboard_content}
-      
+
     {/include}
 {#else}
   {#include dashboard-root}
