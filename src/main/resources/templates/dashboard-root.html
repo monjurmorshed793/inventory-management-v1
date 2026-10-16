@@ -19,15 +19,15 @@
             <div class="grid grid-cols-12">
                 <div class="col-span-2">
                     <ul class="menu bg-base-200 h-screen rounded-box w-56">
-                        <li><a hx-get='/' hx-target='#body-content'>Dashboard</a></li>
+                        <li><a id="dashboard" hx-get='/' hx-target='#body-content'>Dashboard</a></li>
 
                         <li>
                             <h2>Configurations</h2>
                             <ul>
-                                <li><a hx-get='/office' hx-target='#body-content'>Office</a></li>
-                                <li><a >Department</a></li>
-                                <li><a href="">Designation</a></li>
-                                <li><a href="">Employees</a></li>                            
+                                <li><a id="office" hx-get='/office' hx-target='#body-content'>Office</a></li>
+                                <li><a id="department" >Department</a></li>
+                                <li><a id="designation" href="">Designation</a></li>
+                                <li><a id="employees" href="">Employees</a></li>
                             </ul>
                         </li>
 
@@ -48,4 +48,3 @@
         </div>
     {/fragment}
 {/include}
-
