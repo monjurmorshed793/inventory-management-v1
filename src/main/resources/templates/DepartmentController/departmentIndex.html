@@ -16,9 +16,12 @@
         <select class="select" name='office' hx-get='/department/list' hx-include="[name='office']" hx-target='#department-list' hx-swap='outerHTML'>
             <option disabled selected>Select an office</option>
             {#for office in offices}
-                <option value={office.id}>{office.name}</option>
+                <option value={office.id} {#if office.id == officeId}selected{/if}>{office.name}</option>
             {/for}
         </select>
+        {#if officeId}
+            <div id='department-list' hx-get='/department/list?office={officeId}' hx-trigger='load' hx-target='this' hx-swap='outerHTML'></div>
+        {/if}
         <div id='department-list'></div>
     </div>
 {/fragment}

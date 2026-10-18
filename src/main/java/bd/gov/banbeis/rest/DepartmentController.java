@@ -23,20 +23,21 @@ public class DepartmentController extends HxController {
 
     @CheckedTemplate
     static class Templates {
-        public static native TemplateInstance departmentIndex(Boolean isHtmx, String route, List<Office> offices);
+        public static native TemplateInstance departmentIndex(Boolean isHtmx, String route, UUID officeId, List<Office> offices);
 
         public static native TemplateInstance departmentList(List<Department> departments);
     }
 
     @GET
     @Path("/")
-    public TemplateInstance index() {
+    public TemplateInstance index(@QueryParam("office") UUID officeId) {
         this.hx(HxResponseHeader.PUSH_URL, "/department");
-        return Templates.departmentIndex(isHxRequest(), "department", officeRepo.listAll());
+        return Templates.departmentIndex(isHxRequest(), "department", officeId, officeRepo.listAll());
     }
 
     @GET
     public TemplateInstance list(@QueryParam("office") UUID officeId) {
+        this.hx(HxResponseHeader.PUSH_URL, "/department?office="+officeId.toString());
         List<Department> departments = departmentRepo.getByOffice(officeRepo.getSession().getReference(Office.class, officeId));
         return Templates.departmentList(departments);
     }
