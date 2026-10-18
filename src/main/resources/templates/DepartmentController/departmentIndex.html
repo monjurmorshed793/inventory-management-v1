@@ -13,6 +13,12 @@
     {/if}
     <div class="card-body">
         <div class="card-title">Department</div>
+        <select class="select" name='office' hx-get='/department/list' hx-include="[name='office']" hx-target='#department-list' hx-swap='outerHTML'>
+            <option disabled selected>Select an office</option>
+            {#for office in offices}
+                <option value={office.id}>{office.name}</option>
+            {/for}
+        </select>
         <div id='department-list'></div>
     </div>
 {/fragment}
