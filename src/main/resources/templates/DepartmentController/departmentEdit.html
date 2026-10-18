@@ -1,12 +1,29 @@
-<div>
+<div id="modal-content" >
     <h1 class="font-2xl font-bold">Edit Department</h1>
     <form>
         <div class="flex flex-col">
             <label class="label">name</label>
-            <input  placeholder="Department name" value="{department.name}">
-            {#ifError name}
-                <span>{#error name/}</span>
+            <input name="name" class="input"  placeholder="Department name" value="{department.name}">
+            {#ifError "name"}
+                <span class="text-sm text-red-500">{#error "name"/}</span>
             {/ifError}
         </div>
+        <div class="flex flex-col">
+            <label class="label">Name (Bangla)</label>
+            <input type="text" name="nameBn" class="input" placeholder="Department name (bangla)" value="{department.nameBn}">
+            {#ifError "nameBn" }
+                <span class="text-sm text-red-500">{#error "nameBn" /}</span>
+            {/ifError}
+        </div>
+        <div class="flex flex-col">
+            <label class="label">Office</label>
+            <select class="select">
+                <option disabled selected>Select office</option>
+                {#for office in offices}
+                    <option {#if department.office.id == office.id} selected {/if}>{office.name}</option>
+                {/for}
+            </select>
+        </div>
+       
     </form>
 </div>

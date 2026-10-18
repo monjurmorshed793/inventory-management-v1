@@ -28,7 +28,7 @@ public class DepartmentController extends HxController {
 
         public static native TemplateInstance departmentList(List<Department> departments);
 
-        public static native TemplateInstance departmentEdit(Department department);
+        public static native TemplateInstance departmentEdit(Department department, List<Office> offices);
     }
 
     @GET
@@ -48,6 +48,8 @@ public class DepartmentController extends HxController {
     @GET
     @Path("/edit/{id}")
     public TemplateInstance edit(@PathParam("id") UUID id){
-        return Templates.departmentEdit(departmentRepo.findById(id));
+        Department department = departmentRepo.findById(id);
+        List<Office> offices = officeRepo.listAll();
+        return Templates.departmentEdit(department, offices);
     }
 }
