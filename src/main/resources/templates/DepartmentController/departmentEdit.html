@@ -1,6 +1,7 @@
 <div id="modal-content" >
     <h1 class="font-2xl font-bold">Edit Department</h1>
-    <form>
+    <form id="department-form">
+        <input type="text" name="id" hidden value="{department.id}">
         <div class="flex flex-col">
             <label class="label">name</label>
             <input name="name" class="input"  placeholder="Department name" value="{department.name}">
@@ -17,13 +18,14 @@
         </div>
         <div class="flex flex-col">
             <label class="label">Office</label>
-            <select class="select">
+            <select class="select" name="office">
                 <option disabled selected>Select office</option>
                 {#for office in offices}
-                    <option {#if department.office.id == office.id} selected {/if}>{office.name}</option>
+                    <option {#if department.office.id == office.id} selected {/if} value="{office.id}">{office.name}</option>
                 {/for}
             </select>
         </div>
+        <button id="submit-btn" class="btn btn-primary" type="submit" hx-swap-oob="true" hx-put="/department/update" hx-include="#department-form">Submit</button>
        
     </form>
 </div>

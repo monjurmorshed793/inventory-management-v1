@@ -23,7 +23,7 @@
     </thead>
 </table>
 
-<dialog id="modal" closedby="any" class="modal">
+<dialog id="modal" closedby="any" class="modal" {#if initiate} hx-swap-oob="true" {/if}>
     <div class="modal-box">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">X</button>
@@ -34,7 +34,8 @@
         </div>
 
          <div class="flex flex-row  justify-center items-center gap-2 pt-3">
-               <button class="btn btn-danger" command="close" commandfor="modal">Close</button>
+            <button id="submit-btn" hidden>Submit</button>
+            <button class="btn btn-danger" command="close" commandfor="modal">Close</button>
           </div>
     </div>
 

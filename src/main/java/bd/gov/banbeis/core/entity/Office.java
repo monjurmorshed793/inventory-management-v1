@@ -1,5 +1,7 @@
 package bd.gov.banbeis.core.entity;
 
+import java.util.UUID;
+
 import io.quarkus.data.hibernate.ManagedRepository;
 import io.quarkus.data.hibernate.WithId;
 import jakarta.persistence.Entity;
@@ -18,7 +20,7 @@ public class Office extends WithId.AutoUUID {
         this.nameBn = nameBn;
     }
 
-    public interface OfficeRepo extends ManagedRepository<Office>{
+    public interface OfficeRepo extends ManagedRepository.CustomId<Office, UUID>{
 
     }
 }

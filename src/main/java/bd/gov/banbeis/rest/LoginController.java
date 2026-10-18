@@ -52,7 +52,6 @@ public class LoginController extends HxController {
         @NotBlank @RestForm String username,
         @NotBlank @RestForm String password
     ){
-        System.out.println("In the controller");
         if(validationFailed()){
             return Response.ok(login()).build();
         }
