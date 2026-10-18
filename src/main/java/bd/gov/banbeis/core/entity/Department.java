@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Department extends WithId.AutoUUID {
@@ -26,7 +27,7 @@ public class Department extends WithId.AutoUUID {
     }
 
 
-    public interface DepartmentRepo extends ManagedRepository<Department> {
+    public interface DepartmentRepo extends ManagedRepository.CustomId<Department, UUID> {
         @Find
         List<Department> getByOffice(Office office);
     }

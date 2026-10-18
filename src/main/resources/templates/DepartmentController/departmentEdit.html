@@ -1,0 +1,12 @@
+<div>
+    <h1 class="font-2xl font-bold">Edit Department</h1>
+    <form>
+        <div class="flex flex-col">
+            <label class="label">name</label>
+            <input  placeholder="Department name" value="{department.name}">
+            {#ifError name}
+                <span>{#error name/}</span>
+            {/ifError}
+        </div>
+    </form>
+</div>

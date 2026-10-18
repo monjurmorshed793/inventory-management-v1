@@ -8,6 +8,7 @@ import io.quarkus.qute.TemplateInstance;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 
 import java.util.List;
@@ -26,6 +27,8 @@ public class DepartmentController extends HxController {
         public static native TemplateInstance departmentIndex(Boolean isHtmx, String route, UUID officeId, List<Office> offices);
 
         public static native TemplateInstance departmentList(List<Department> departments);
+
+        public static native TemplateInstance departmentEdit(Department department);
     }
 
     @GET
@@ -40,5 +43,11 @@ public class DepartmentController extends HxController {
         this.hx(HxResponseHeader.PUSH_URL, "/department?office="+officeId.toString());
         List<Department> departments = departmentRepo.getByOffice(officeRepo.getSession().getReference(Office.class, officeId));
         return Templates.departmentList(departments);
+    }
+
+    @GET
+    @Path("/edit/{id}")
+    public TemplateInstance edit(@PathParam("id") UUID id){
+        return Templates.departmentEdit(departmentRepo.findById(id));
     }
 }
