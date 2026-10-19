@@ -3,6 +3,7 @@ package bd.gov.banbeis.rest;
 import bd.gov.banbeis.core.entity.Department;
 import bd.gov.banbeis.core.entity.Office;
 import io.quarkiverse.renarde.htmx.HxController;
+import io.quarkiverse.renarde.util.Flash;
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
 import io.smallrye.common.constraint.NotNull;
@@ -63,15 +64,15 @@ public class DepartmentController extends HxController {
     }
 
     @PUT
+    @Path("/update")
     @Transactional 
-    public TemplateInstance update(@RestForm @NotNull   UUID id, @RestForm @NotBlank  String name, @RestForm String nameBn, @NotNull  @RestForm UUID office){
+    public TemplateInstance update(@RestForm UUID id, @RestForm String name, @RestForm String nameBn, @RestForm UUID office){
         Department department = new Department();
-
-        if(validationFailed()){
-            if(name==null)
-                validation.addError(name, "Name is required");
-            if(office==null)
-                validation.addError("office", "Office is required");
+        if(name==null || name.isBlank())
+            validation.addError("name", "Name is required");
+        if(office==null)
+            validation.addError("office", "Office is required");
+        if(validation.hasErrors()){
             department.name = name;
             department.nameBn = nameBn;
             department.office = office==null? null: officeRepo.findById(office);
@@ -82,12 +83,15 @@ public class DepartmentController extends HxController {
         Office officeObj = officeRepo.getSession().getReference(Office.class, office);
         department = departmentRepo.findById(id);
         department.name = name;
-        department.nameBn = nameBn;
+        department.nameBn = nameBn; 
+        Office oldOffice = department.office;
         department.office = officeObj;
         departmentRepo.persistAndFlush(department);
-
-        List<Department> departments = departmentRepo.getByOffice(officeObj);
         
+        List<Department> departments = departmentRepo.getByOffice(oldOffice);
+        
+        hx(HxResponseHeader.HX_RESWAP, "outerHTML");
+        hx(HxResponseHeader.HX_RETARGET, "#department-list");
         return Templates.departmentList(departments, true);
     }
 }

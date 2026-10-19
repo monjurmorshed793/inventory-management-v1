@@ -24,6 +24,9 @@
                     <option {#if department.office.id == office.id} selected {/if} value="{office.id}">{office.name}</option>
                 {/for}
             </select>
+            {#ifError "office"}
+                <span class="text-sm text-red-500">{#error "office"/}</span>
+            {/ifError}
         </div>
         <button id="submit-btn" class="btn btn-primary" type="submit" hx-swap-oob="true" hx-put="/department/update" hx-include="#department-form">Submit</button>
        
