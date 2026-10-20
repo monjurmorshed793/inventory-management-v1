@@ -4,7 +4,8 @@
     <!-- You can pass parameters from your templates to your main template and insert them -->
     <title>{#insert title /}</title>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0" integrity="sha384-BvJpBiO8Kh31EqtJe5DRIeWrHWnCGkwytKs9NKFi86Hhw96dEqdEMzZDeK9iEGTc" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/htmx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/dist/ext/hx-upsert.js"></script>
     {#bundle /}
   </head>
   <body  hx-headers:inherited='{"{inject:csrf.headerName}":"{inject:csrf.token}"}'>

@@ -1,0 +1,21 @@
+{#if isHtmx}
+  {#include $designation_content}
+    
+  {/include}
+{#else}
+  {#include dashboard-root}
+    {#include $designation_content }
+      
+    {/include}
+  {/include}
+{/if}
+
+{#fragment id=designation_content rendered=false}
+  {#if isHtmx}
+    {#include dashboard-root$manu_list isHtmx=isHtmx route='designation'}
+      
+    {/include}
+  {/if}
+
+  
+{/fragment}
