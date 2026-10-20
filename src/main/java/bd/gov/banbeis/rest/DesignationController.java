@@ -31,14 +31,17 @@ public class DesignationController extends HxController{
     @GET
     @Path("/")
     public TemplateInstance index(){
+        hx(HxResponseHeader.REPLACE_URL, "/designation");
         return Templates.designationIndex(isHxRequest());
     }
 
     @GET
     @Path("/list")
-    public TemplateInstance list(@QueryParam("page") @DefaultValue("0") Integer page, @QueryParam("size") @DefaultValue("10") Integer size){
+    public TemplateInstance list(
+        @QueryParam("page") @DefaultValue("0") Integer page,
+        @QueryParam("size") @DefaultValue("10") Integer size){
          BlockingDataQuery<Designation> designationsQuery = designationRepo.findAll();
-         List<Designation> designations = designationsQuery.pages().cursor(page, size).list();
+         List<Designation> designations = designationsQuery.pages().page(page, size).list();
         return Templates.designationList(designations, designationRepo.count(), page, size);
     }
 }

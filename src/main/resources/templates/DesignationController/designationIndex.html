@@ -17,5 +17,11 @@
     {/include}
   {/if}
 
-  
+  <div class="card-body">
+    <div class="card-title">Designations</div>
+    <div class="card-body flex flex-col gap-2">
+      <div id="designation-list" hx-get="/designation/list?page=0" hx-trigger="load" hx-swap="outerHTML"></div>
+    </div>
+  </div>
+
 {/fragment}
