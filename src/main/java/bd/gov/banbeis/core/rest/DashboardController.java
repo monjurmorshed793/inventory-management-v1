@@ -1,4 +1,4 @@
-package bd.gov.banbeis.rest;
+package bd.gov.banbeis.core.rest;
 
 import io.quarkiverse.renarde.htmx.HxController;
 import io.quarkus.qute.CheckedTemplate;

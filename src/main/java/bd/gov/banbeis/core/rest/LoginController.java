@@ -1,4 +1,4 @@
-package bd.gov.banbeis.rest;
+package bd.gov.banbeis.core.rest;
 
 import org.jboss.resteasy.reactive.RestForm;
 import org.jboss.resteasy.reactive.server.spi.RuntimeConfiguration.Body.MultiPart;

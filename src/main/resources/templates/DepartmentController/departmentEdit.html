@@ -3,7 +3,7 @@
     <form id="department-form">
         <input type="text" name="id" hidden value="{department.id}">
         <div class="flex flex-col">
-            <label class="label">name</label>
+            <label class="label">Name</label>
             <input name="name" class="input"  placeholder="Department name" value="{department.name}">
             {#ifError "name"}
                 <span class="text-sm text-red-500">{#error "name"/}</span>

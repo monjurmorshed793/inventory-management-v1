@@ -1,4 +1,4 @@
-package bd.gov.banbeis.rest;
+package bd.gov.banbeis.core.rest;
 
 import bd.gov.banbeis.core.entity.Office;
 import io.quarkiverse.renarde.htmx.HxController;

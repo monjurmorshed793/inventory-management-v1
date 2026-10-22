@@ -2,7 +2,7 @@
   <div class="join">
     <button class="join-item btn" hx-get="{url}?page=0&size={size}&totalPages={totalPages}" hx-target="#designation-list" hx-swap="outerHTML">First</button>
     {#for item in pages}
-      <button class="join-item btn" {#if item == page  } selected{/if}>{item + 1}</button>
+      <button class="join-item btn" {#if item == page  } selected{/if} hx-get="{url}?page={item}&size={size}&totalPages={totalPages}" hx-target="#designation-list" hx-swap="outerHTML">{item + 1}</button>
     {/for}
     
     <button class="join-item btn" hx-get="{url}?page={totalPages}&size={size}&totalPages={totalPages}" hx-target="#designation-list" hx-swap="outerHTML">Last</button>

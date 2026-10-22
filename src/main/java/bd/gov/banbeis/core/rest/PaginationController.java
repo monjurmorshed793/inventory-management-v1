@@ -1,4 +1,4 @@
-package bd.gov.banbeis.rest;
+package bd.gov.banbeis.core.rest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +43,6 @@ public class PaginationController extends HxController{
         }
 
         pages.sort(Integer::compareTo);
-        return Templates.pageIndex(url, pages, page, size, totalPages.longValue());
+        return Templates.pageIndex(url, pages, page, size, totalPages.longValue()-1);
     }
 }

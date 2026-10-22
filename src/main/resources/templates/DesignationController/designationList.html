@@ -1,6 +1,6 @@
 <div id="designation-list">
   <div class="flex flex-row justify-end items-end">
-    <button class="btn btn-primary">Add New Designation</button>
+    <button class="btn btn-primary" command="show-modal" commandfor="modal" hx-get="/designation/edit?page={page}&size={size}" hx-target="#modal-content" hx-swap="outerHTML">Add New Designation</button>
   </div>
   <table  class="table">
     <thead>
@@ -28,4 +28,19 @@
   </table>
   <div id="pagination" hx-get="/page?url=/designation/list&page={page}&size={size}&totalItems={totalItems}" hx-trigger="load" hx-swap="outerHTML"></div>
 
+  <dialog id="modal" closedby="any" class="modal" {#if initiate} hx-swap-oob="true" {/if}>
+    <div class="modal-box">
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">X</button>
+      </form>
+      <div id="modal-content">
+        <p>Loading...</p>
+      </div>
+      <div class="flex flex-row justify-center items-center gap-2 pt-3">
+        <button id="submit-btn" hidden>Submit</button>
+        <button class="btn btn-danger" command="close" commandfor="modal">Cancel</button>
+      </div>
+    </div>
+    
+  </dialog>
 </div>

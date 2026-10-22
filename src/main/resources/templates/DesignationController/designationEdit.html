@@ -1,0 +1,34 @@
+<div id="modal-content">
+	<h1 class="font-2xl font-bold">
+		{#if designation.id}
+			Edit Designation
+		{#else}
+			Create New Designation
+		{/if}
+	</h1>
+	<form id="designation-form">
+		<input type="text" name="id" hidden value="{designation.id}">
+		<div class="flex flex-col">
+			<label class="label">Name</label>
+			<input type="text" name="name" class="input w-full" placeholder="Designation name" value="{designation.name}">
+			{#ifError "name" }
+				<span class="text-sm text-red-500">{#error "name" /}</span>
+			{/ifError}
+		</div>
+		<div class="flex flex-col">
+			<label class="label">Name (Bangla)</label>
+			<input type="text" name="nameBn" class="input w-full" placeholder="Designation name (Bangla)" value="{designation.nameBn}">
+			{#ifError "nameBn" }
+				<span class="text-sm text-red-500">{#error "nameBn" /}</span>
+			{/ifError}
+		</div>
+		<div class="flex flex-col">
+			<label class="label">Grade</label>
+			<input type="number" name="grade" class="input w-full" placeholder="Designation grade" value="{designation.grade}">
+			{#ifError "grade" }
+				<span class="text-sm text-red-500">{#error "grade" /}</span>
+			{/ifError}
+		</div>
+		<button id="submit-btn" class="btn btn-primary" type="submit" hx-swap-oob="true" {#if designation.id} hx-put="/designation?page={page}&size={size}" {#else} hx-post="/designation?page={page}&size={size}" {/if} hx-include="#designation-form" hx-swap="outerHTML">Submit</button>
+	</form>
+</div>

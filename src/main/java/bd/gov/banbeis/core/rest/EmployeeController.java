@@ -1,4 +1,4 @@
-package bd.gov.banbeis.rest;
+package bd.gov.banbeis.core.rest;
 
 public class EmployeeController {
 }
