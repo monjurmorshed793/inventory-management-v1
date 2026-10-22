@@ -1,9 +1,11 @@
 <div id="pagination" class="flex flex-row justify-center items-center">
   <div class="join">
-    <button class="join-item btn">1</button>
-    <button class="join-item btn">2</button>
-    <button class="join-item btn btn-disabled">...</button>
-    <button class="join-item btn">99</button>
-    <button class="join-item btn">100</button>
+    <button class="join-item btn" hx-get="{url}?page=0&size={size}&totalPages={totalPages}" hx-target="#designation-list" hx-swap="outerHTML">First</button>
+    {#for item in pages}
+      <button class="join-item btn" {#if item == page  } selected{/if}>{item + 1}</button>
+    {/for}
+    
+    <button class="join-item btn" hx-get="{url}?page={totalPages}&size={size}&totalPages={totalPages}" hx-target="#designation-list" hx-swap="outerHTML">Last</button>
+
   </div>
 </div>

@@ -1,28 +1,31 @@
-<div class="flex flex-row justify-end items-end">
-  <button class="btn btn-primary">Add New Designation</button>
-</div>
-<table id="designation-list" class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Name (Bangla)</th>
-      <th class="text-center">Grade</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {#for designation in designations}
+<div id="designation-list">
+  <div class="flex flex-row justify-end items-end">
+    <button class="btn btn-primary">Add New Designation</button>
+  </div>
+  <table  class="table">
+    <thead>
       <tr>
-        <td>{designation_count}</td>
-        <td>{designation.name}</td>
-        <td>{designation.nameBn}</td>
-        <td>{designation.grade}</td>
-        <td class="flex flex-row justify-center items-center">
-          <button class="btn btn-outline btn-sm">Edit</button>
-        </td>
+        <th>#</th>
+        <th>Name</th>
+        <th>Name (Bangla)</th>
+        <th class="text-center">Grade</th>
+        <th></th>
       </tr>
-    {/for}
-  </tbody>
-</table>
-<div id="pagination" hx-get="/page?url='/designation/list'&page={page}&size={size}&totalPages={totalItems}" hx-trigger="load" hx-swap="outerHTML"></div>
+    </thead>
+    <tbody>
+      {#for designation in designations}
+        <tr>
+          <td>{designation_count}</td>
+          <td>{designation.name}</td>
+          <td>{designation.nameBn}</td>
+          <td>{designation.grade}</td>
+          <td class="flex flex-row justify-center items-center">
+            <button class="btn btn-outline btn-sm">Edit</button>
+          </td>
+        </tr>
+      {/for}
+    </tbody>
+  </table>
+  <div id="pagination" hx-get="/page?url=/designation/list&page={page}&size={size}&totalItems={totalItems}" hx-trigger="load" hx-swap="outerHTML"></div>
+
+</div>
