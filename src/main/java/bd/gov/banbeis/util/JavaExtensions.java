@@ -23,4 +23,8 @@ public class JavaExtensions {
         }
         return sb.toString();
     }
+
+    public static Integer rowNumber(int page, int size, int count){
+        return page * size + count;
+    }
 }

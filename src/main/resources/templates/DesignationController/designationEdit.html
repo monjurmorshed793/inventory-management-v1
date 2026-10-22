@@ -29,6 +29,6 @@
 				<span class="text-sm text-red-500">{#error "grade" /}</span>
 			{/ifError}
 		</div>
-		<button id="submit-btn" class="btn btn-primary" type="submit" hx-swap-oob="true" {#if designation.id} hx-put="/designation?page={page}&size={size}" {#else} hx-post="/designation?page={page}&size={size}" {/if} hx-include="#designation-form" hx-swap="outerHTML">Submit</button>
+		<button id="submit-btn" class="btn btn-primary" type="submit" hx-swap-oob="true" hx-put="/designation?page={page}&size={size}"  hx-include="#designation-form" hx-swap="outerHTML">Submit</button>
 	</form>
 </div>

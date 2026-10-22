@@ -21,6 +21,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 
@@ -66,17 +67,20 @@ public class DesignationController extends HxController{
         return Templates.designationEdit(designation, page, size);
     }
 
-    @POST
+    @PUT 
     @Path("/")
     @Transactional 
-    public TemplateInstance create(
+    public TemplateInstance edit(
         @QueryParam("page") Integer page,
         @QueryParam("size") Integer size,
+        @RestForm UUID id,
         @RestForm String name,
         @RestForm String nameBn,
         @RestForm Integer grade
     ){
         Designation designation = new Designation();
+        if(id!=null)
+            designation = designationRepo.findById(id);
         designation.name = name;
         designation.nameBn = nameBn;
         designation.grade = grade;

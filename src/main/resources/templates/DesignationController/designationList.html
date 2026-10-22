@@ -15,12 +15,12 @@
     <tbody>
       {#for designation in designations}
         <tr>
-          <td>{designation_count}</td>
+          <td>{page.rowNumber(size, designation_count)}</td>
           <td>{designation.name}</td>
           <td>{designation.nameBn}</td>
           <td>{designation.grade}</td>
           <td class="flex flex-row justify-center items-center">
-            <button class="btn btn-outline btn-sm">Edit</button>
+            <button class="btn btn-outline btn-sm" command="show-modal" commandfor="modal" hx-get="/designation/edit?page={page}&size={size}&id={designation.id}" hx-target="#modal-content" hx-swap="outerHTML">Edit</button>
           </td>
         </tr>
       {/for}
