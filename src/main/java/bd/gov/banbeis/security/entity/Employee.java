@@ -13,6 +13,7 @@ import bd.gov.banbeis.core.entity.Thana;
 import io.quarkus.data.hibernate.ManagedRepository;
 import io.quarkus.data.hibernate.WithId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -25,18 +26,10 @@ public class Employee extends WithId.AutoUUID{
     public String email;
     public String mobile;
     public String alternativeMobile;
-    @ManyToOne 
-    public Office office;
-    @ManyToOne 
-    public Department department;
+    @OneToMany 
+    public List<EmployeeOffice> offices;
     @ManyToOne 
     public Designation designation;
-    @ManyToOne 
-    public Division division;
-    @ManyToOne 
-    public District district;
-    @ManyToOne 
-    public Thana thana;
     public LocalDate joiningDate;
     public Boolean isActive;
     public Boolean hasUsername;
