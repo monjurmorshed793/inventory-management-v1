@@ -1,0 +1,24 @@
+{#if isHtmx}
+	{#include $employee_content }
+		
+	{/include}
+
+{#else}
+	{#include dashboard-root}
+		{#include $employee_content }
+			
+		{/include}
+	{/include}
+{/if}
+
+{#fragment id=employee_content rendered=false}
+	{#if isHtmx}
+		{#include dashboard-root$manu_list isHtmx=isHtmx route = 'employee'}
+			
+		{/include}
+	{/if}	
+	<div class="card-body">
+		<div class="card-title">Employees</div>
+		<div class="card-body flex flex-col gap-2"></div>
+	</div>
+{/fragment}
