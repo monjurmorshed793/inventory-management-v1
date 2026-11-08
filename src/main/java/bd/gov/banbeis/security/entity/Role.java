@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Table(name="role")
 public class Role extends WithId.AutoUUID {
     public String name;
-
+    
     public interface RoleRepo extends ManagedRepository<Role>{
 
     }

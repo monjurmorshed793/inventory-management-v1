@@ -42,6 +42,8 @@ public class Employee extends WithId.AutoUUID{
     public List<Address> addresses;
     @OneToMany 
     public List<EducationalQualification> educationalQualifications;
+    @OneToMany 
+    public List<EmployeeOffice> employeeOffices;
 
     public interface EmployeeRepo extends ManagedRepository.CustomId<Employee, UUID>{
         

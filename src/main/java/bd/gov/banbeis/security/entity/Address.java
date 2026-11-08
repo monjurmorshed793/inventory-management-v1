@@ -1,9 +1,14 @@
 package bd.gov.banbeis.security.entity;
 
+import java.util.UUID;
+
+import org.hibernate.engine.spi.ManagedEntity;
+
 import bd.gov.banbeis.core.entity.District;
 import bd.gov.banbeis.core.entity.Division;
 import bd.gov.banbeis.core.entity.Thana;
 import bd.gov.banbeis.security.enumeration.AddressType;
+import io.quarkus.data.hibernate.ManagedRepository;
 import io.quarkus.data.hibernate.WithId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -14,6 +19,8 @@ import jakarta.persistence.Table;
 @Entity
 @Table (name = "address")
 public class Address extends WithId.AutoUUID{
+    @ManyToOne 
+    public Employee employee;
     @Enumerated(EnumType.STRING)
     public AddressType type;
     @ManyToOne 
@@ -25,4 +32,9 @@ public class Address extends WithId.AutoUUID{
     public String road;
     public String postOffice;
     public Integer postCode;
+
+    public interface AddressRepo extends ManagedRepository.CustomId<Address, UUID>{
+    
+        
+    }
 }
